@@ -8,7 +8,7 @@ SRCS = mandatory/main.c  mandatory/ft_fill_stack.c mandatory/ft_utils.c
 
 NAME = push_swap 
 OBJS = $(SRCS:.c=.o)
-LIBFT=libfttt/libft.a
+LIBFT=libft/libft.a
 
 
 all : $(NAME)
@@ -17,18 +17,18 @@ $(NAME) : $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(LIBFT)  $(OBJS) -o $(NAME)
 
 $(LIBFT):
-	make -C libfttt/
+	make -C libft/
 
 clean:
 	@$(RM) $(OBJS) 
-	@make clean -C libfttt
+	@make clean -C libft
 
 %.o : %.c $(HEADERS) 
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 fclean : clean 
 		@$(RM) $(NAME) 
-		@make fclean -C libfttt
+		@make fclean -C libft
 
 re : fclean all 
 
