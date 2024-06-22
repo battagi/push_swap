@@ -1,5 +1,5 @@
 
-#include "../libftt/libft.h"
+#include "../libfttt/libft.h"
 #include <stdio.h>
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
