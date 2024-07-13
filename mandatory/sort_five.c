@@ -1,43 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fill_stack.c                                    :+:      :+:    :+:   */
+/*   sort_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abattagi <abattagi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/13 13:33:10 by abattagi          #+#    #+#             */
-/*   Updated: 2024/07/13 15:22:06 by abattagi         ###   ########.fr       */
+/*   Created: 2024/07/13 13:33:25 by abattagi          #+#    #+#             */
+/*   Updated: 2024/07/13 13:33:26 by abattagi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-int	ft_fill_stack(t_node **a, char **tab, long nbr)
+int	ft_find_min(t_node *a)
 {
-	int	c;
+	t_node	*tmp;
+	t_node	*min;
 
-	c = 0;
-	while (tab[c])
+	tmp = a;
+	min = a;
+	while (tmp)
 	{
-		if (ft_is_int(tab[c]) == 0)
-		{
-			ft_free_stack(*a);
-			return (-1);
-		}
-		nbr = ft_atoi(tab[c]);
-		if (nbr > 2147483647 || nbr < -2147483648)
-		{
-			ft_free_stack(*a);
-			return (-2);
-		}
-		if (ft_check_repeat(a, nbr) == 0)
-		{
-			ft_free_stack(*a);
-			return (-3);
-		}
-		ft_add_node(a, (int)nbr);
-		c++;
+		if (tmp->value < min->value)
+			min = tmp;
+		tmp = tmp->next_node;
 	}
-	return (0);
+	return (min->value);
+}
+
+void	sort_five(t_node **a, t_node **b)
+{
+	while ((*a)->value != ft_find_min(*a))
+		ra(a);
+	pb(a, b);
+	while ((*a)->value != ft_find_min(*a))
+		ra(a);
+	pb(a, b);
+	ft_sort_tree(a);
+	while (*b)
+		pa(a, b);
 }
